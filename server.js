@@ -1,4 +1,16 @@
-// TODO: create a basic server with express
-// that can handle a GET request for what ever resource you'd like
-// whatever url you want, and then navigate to that url in the browser and
-// see if yuor resource is there.
+var express = require('express');
+var app = express();
+
+app.get('/', function(req, res){
+  res.sendFile(__dirname + '/index.html', function(err) {
+    if (err) {
+      res.status(500).send(err);
+    }
+  })
+});
+
+
+var port = 3000;
+app.listen(port, function(){
+  console.log('listening on http://localhost:', port);
+});
