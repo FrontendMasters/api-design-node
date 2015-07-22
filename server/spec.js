@@ -2,7 +2,7 @@ var app = require('./server');
 var request = require('supertest');
 var expect = require('chai').expect;
 
-describe('lions', function(){
+describe('[LIONS]', function(){
 
   it('should get all lions', function(done) {
     request(app)
@@ -50,6 +50,30 @@ describe('lions', function(){
           .delete('/lions/' + lion.id)
           .end(function(err, resp) {
             expect(resp.body).to.eql(lion);
+            done();
+          });
+      })
+  });
+
+  it('should update a lion', function(done) {
+    request(app)
+      .post('/lions')
+      .send({
+        name: 'test lion',
+        age: 100,
+        pride: 'test lion',
+        gender:'female'
+      })
+      .set('Accept', 'application/json')
+      .end(function(err, resp) {
+        var lion = resp.body;
+        request(app)
+          .put('/lions/' + lion.id)
+          .send({
+            name: 'new name'
+          })
+          .end(function(err, resp) {
+            expect(resp.body.name).to.equal('new name');
             done();
           });
       })
