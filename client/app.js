@@ -521,7 +521,6 @@ ready(function() {
     e.preventDefault();
 
     var values = getValues();
-    console.log(values);
     fetch('/lions', {
       method: 'post',
       headers: {
