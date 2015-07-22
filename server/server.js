@@ -18,11 +18,10 @@ app.use('/tigers', tigerRouter);
 
 app.use(function(err, req, res, next) {
   if (err) {
-    res.status(500).send(error);
+    res.status(500).send(err);
   }
 });
 
 
 
-app.listen(3000);
-console.log('on port 3000');
+module.exports = app;
