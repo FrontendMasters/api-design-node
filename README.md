@@ -3,4 +3,6 @@
 
 ##Todo
 
-create a basic web server with expressthat can handle a GET request for whatever resource you'd like and whatever url you want. Navigate to that url in the browser and see if yuor resource is there. The solution is on the `step-1-fix` branch
+create a basic server with express
+that will send back the index.html file on a GET request to '/'
+it should then send back jsonData on a GET to /data

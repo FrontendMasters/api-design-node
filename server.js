@@ -1,4 +1,5 @@
 // TODO: create a basic server with express
-// that can handle a GET request for what ever resource you'd like
-// whatever url you want, and then navigate to that url in the browser and
-// see if yuor resource is there.
+// that will send back the index.html file on a GET request to '/'
+// it should then send back jsonData on a GET to /data
+
+var jsonData = {count: 12, message: 'hey'};
