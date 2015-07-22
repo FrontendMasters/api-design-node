@@ -1,3 +1,14 @@
+// TODO: user app.params to find the lion using the id
+// and then attach the lion to the req object and call next. Then in
+// '/lion/:id' just send back req.lion
+
+// create a middleware function to catch and handle errors, register it
+// as the last middleware on app
+
+
+// create a route middleware for POST /lions that will increment and
+// add an id to the incoming new lion object on req.body
+
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
@@ -8,11 +19,7 @@ var lions = [];
 var id = 0;
 
 var updateId = function(req, res, next) {
-  if (!req.body.id) {
-    id++;
-    req.body.id = id + '';
-  }
-  next();
+  // fill this out. this is the route middleware for the ids
 };
 
 app.use(morgan('dev'))
@@ -20,21 +27,10 @@ app.use(express.static('client'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-app.use(function(err, req, res, next) {
-  if (err) {
-    res.status(500).send(error);
-  }
-});
 
 app.param('id', function(req, res, next, id) {
-  var todo = _.find(todos, {id: id});
-
-  if (todo) {
-    req.todo = todo;
-    next();
-  } else {
-    res.send();
-  }
+  // fill this out to find the lion based off the id
+  // and attach it to req.lion. Rember to call next()
 });
 
 app.get('/lions', function(req, res){
@@ -42,7 +38,7 @@ app.get('/lions', function(req, res){
 });
 
 app.get('/lions/:id', function(req, res){
-  var lion = req.todo;
+  // use req.lion
   res.json(lion || {});
 });
 
