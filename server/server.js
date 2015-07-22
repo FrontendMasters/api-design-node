@@ -27,10 +27,10 @@ app.use(function(err, req, res, next) {
 });
 
 app.param('id', function(req, res, next, id) {
-  var todo = _.find(todos, {id: id});
+  var lion = _.find(lions, {id: id});
 
-  if (todo) {
-    req.todo = todo;
+  if (lion) {
+    req.lion = lion;
     next();
   } else {
     res.send();
@@ -42,7 +42,7 @@ app.get('/lions', function(req, res){
 });
 
 app.get('/lions/:id', function(req, res){
-  var lion = req.todo;
+  var lion = req.lion;
   res.json(lion || {});
 });
 
