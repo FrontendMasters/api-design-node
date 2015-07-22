@@ -1,3 +1,4 @@
+var _ = require('lodash');
 var tigerRouter = require('express').Router();
 
 var tigers = [];
@@ -12,10 +13,10 @@ var updateId = function(req, res, next) {
 };
 
 tigerRouter.param('id', function(req, res, next, id) {
-  var todo = _.find(todos, {id: id});
+  var lion = _.find(tigers, {id: id})
 
-  if (todo) {
-    req.todo = todo;
+  if (lion) {
+    req.lion = lion;
     next();
   } else {
     res.send();
@@ -27,7 +28,7 @@ tigerRouter.get('/', function(req, res){
 });
 
 tigerRouter.get('/:id', function(req, res){
-  var tiger = req.todo;
+  var tiger = req.tiger;
   res.json(tiger || {});
 });
 
@@ -39,6 +40,12 @@ tigerRouter.post('/', updateId, function(req, res) {
   res.json(tiger);
 });
 
+tigerRouter.delete('/:id', function(req, res) {
+  var tiger = _.findIndex(tigers, {id: req.params.id});
+  tigers.splice(tiger, 1);
+
+  res.json(req.tiger);
+});
 
 tigerRouter.put('/:id', function(req, res) {
   var update = req.body;
@@ -50,8 +57,8 @@ tigerRouter.put('/:id', function(req, res) {
   if (!tigers[tiger]) {
     res.send();
   } else {
-    var updatedtiger = _.assign(tigers[tiger], update);
-    res.json(updatedtiger);
+    var updatedTiger = _.assign(tigers[tiger], update);
+    res.json(updatedTiger);
   }
 });
 
