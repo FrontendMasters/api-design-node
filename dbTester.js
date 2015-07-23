@@ -7,7 +7,7 @@ var mongoose = require('mongoose');
 // So in the mongo shell in the terminal,
 // connect to your database and uery it there
 // and see if you see the todo below log in the terminal
-// run node server/db.Tester to execute this file
+// run node db.Tester to execute this file
 // MAKE SURE MONGOD is RUNNING
 
 var TodoSchema = new mongoose.Schema({
