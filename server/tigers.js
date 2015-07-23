@@ -12,10 +12,10 @@ var updateId = function(req, res, next) {
 };
 
 tigerRouter.param('id', function(req, res, next, id) {
-  var todo = _.find(todos, {id: id});
+  var tiger = _.find(tigers, {id: id});
 
-  if (todo) {
-    req.todo = todo;
+  if (tiger) {
+    req.tiger = tiger;
     next();
   } else {
     res.send();
@@ -27,7 +27,7 @@ tigerRouter.get('/', function(req, res){
 });
 
 tigerRouter.get('/:id', function(req, res){
-  var tiger = req.todo;
+  var tiger = req.tiger;
   res.json(tiger || {});
 });
 
