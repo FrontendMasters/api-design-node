@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1/sip');
+
 // connect to a database so the below will work.
 // what's happening is that we're querying yor mongo db
 // on the todos collection and
