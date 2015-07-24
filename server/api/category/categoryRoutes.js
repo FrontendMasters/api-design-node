@@ -7,7 +7,7 @@ var auth = require('../../auth/auth');
 router.param('id', controller.params);
 
 router.route('/')
-  .get(controller.get)
+  .get( controller.get)
   .post(controller.post)
 
 router.route('/:id')

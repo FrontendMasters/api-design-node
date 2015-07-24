@@ -48,8 +48,7 @@ exports.put = function(req, res, next) {
 
 exports.post = function(req, res, next) {
   var newUser = new User(req.body);
-  console.log(newUser.encryptPassword)
-  newUser.hashedPassword = newUser.encryptPassword(newUser.password);
+
   newUser.save(function(err, user) {
     if(err) {next(err);}
 
