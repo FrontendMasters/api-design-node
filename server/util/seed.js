@@ -7,9 +7,9 @@ var logger = require('./logger');
 logger.log('Seeding the Database');
 
 var users = [
-  {username: 'Jimmylo'},
-  {username: 'Xoko'},
-  {username: 'katamon'}
+  {username: 'Jimmylo', password: 'test'},
+  {username: 'Xoko', password: 'test'},
+  {username: 'katamon', password: 'test'}
 ];
 
 var categories = [
