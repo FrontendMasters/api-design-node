@@ -35,7 +35,14 @@ UserSchema.methods = {
       var salt = bcrypt.genSaltSync(10);
       return bcrypt.hashSync(plainTextPword, salt);
     }
+  },
+
+  toJson: function() {
+    var obj = this.toObject()
+    delete obj.password;
+    return obj;
   }
 };
+
 
 module.exports = mongoose.model('user', UserSchema);

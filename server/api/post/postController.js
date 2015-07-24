@@ -4,7 +4,7 @@ var logger = require('../../util/logger');
 
 exports.params = function(req, res, next, id) {
   Post.findById(id)
-    .populate('author')
+    .populate('author', 'username')
     .exec()
     .then(function(post) {
       if (!post) {

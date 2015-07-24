@@ -7,7 +7,7 @@ var checkUser = [auth.decodeToken(), auth.getFreshUser()];
 // setup boilerplate route jsut to satisfy a request
 // for building
 router.param('id', controller.params);
-router.get('/me', controller.me);
+router.get('/me', checkUser, controller.me);
 
 router.route('/')
   .get(controller.get)
