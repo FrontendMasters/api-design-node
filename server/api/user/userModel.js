@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bcrypt = require('bcrypt');
+
 var UserSchema = new Schema({
   username: {
     type: String,
@@ -20,7 +21,6 @@ UserSchema.pre('save', function(next) {
   this.password = this.encryptPassword(this.password);
   next();
 })
-
 
 UserSchema.methods = {
   // check the passwords on signin

@@ -52,6 +52,7 @@ exports.put = function(req, res, next) {
 
 exports.post = function(req, res, next) {
   var newpost = req.body;
+  newpost.author = req.user._id;
   Post.create(newpost)
     .then(function(post) {
       res.json(post);
