@@ -19,8 +19,13 @@ app.use('/auth', auth);
 // set up global error handling
 
 app.use(function(err, req, res, next) {
+  if (err.name === 'UnauthorizedError') {
+    res.status(401).send('Invalid token');
+    return;
+  }
+
   logger.error(err.stack);
-  res.status(500);
+  res.status(500).send('Oops');
 });
 
 // export the app for testing

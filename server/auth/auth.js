@@ -10,7 +10,7 @@ exports.decodeToken = function() {
     // if it is, place it on the headers where it should be
     // so checkToken can see it. See follow the 'Bearer 034930493' format
     // so checkToken can see it and decode it
-    if (req.query && req.query.hasOwnPropery('access_token')) {
+    if (req.query && req.query.hasOwnProperty('access_token')) {
       req.headers.authorization = 'Bearer ' + req.query.access_token;
     }
 
@@ -55,14 +55,21 @@ exports.verifyUser = function() {
       return;
     }
 
+    // look user up in the DB so we can check
+    // if the passwords match for the username
     User.findOne({username: username})
       .then(function(user) {
         if (!user) {
           res.status(401).send('No user with the given username');
         } else {
+          // checking the passowords here
           if (!user.authenticate(password)) {
             res.status(401).send('Wrong password');
           } else {
+            // if everything is good,
+            // then attach to req.user
+            // and call next so the controller
+            // can sign a token from the req.user._id
             req.user = user;
             next();
           }

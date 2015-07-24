@@ -38,6 +38,4 @@ UserSchema.methods = {
   }
 };
 
-
-
 module.exports = mongoose.model('user', UserSchema);
