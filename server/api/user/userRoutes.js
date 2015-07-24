@@ -1,9 +1,8 @@
 var router = require('express').Router();
 var logger = require('../../util/logger');
 var controller = require('./userController');
-var auth = require('../../auth/auth');
 
-// lock down the right routes :)
+
 router.param('id', controller.params);
 
 router.route('/')

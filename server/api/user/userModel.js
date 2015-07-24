@@ -15,7 +15,10 @@ var UserSchema = new Schema({
   }
 });
 
+// middleware that will run before a document
+// is created
 UserSchema.pre('save', function(next) {
+
   if (!this.isModified('password')) return next();
   this.password = this.encryptPassword(this.password);
   next();
