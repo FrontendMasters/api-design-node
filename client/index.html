@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lions</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main>
+    <h1>Lions</h1>
+
+    <form name="lions">
+      <div class="textbox">
+        <input
+          type="text"
+          required
+          name="lion-name"/>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>lion name</label>
+      </div>
+
+    <div class="textbox">
+      <input
+        type="text"
+        required
+        name="lion-pride"/>
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>lion pride</label>
+    </div>
+
+
+    <input type="number" name="lion-age">
+    <select name="select">
+      <option value="female" selected>female</option>
+      <option value="male">male</option>
+    </select>
+    <button>submit</button>
+    </form>
+
+    <div class="content">
+      <ul class="lion-list"></ul>
+    </div>
+  </main>
+<script src="app.js"></script>
+</body>
+</html>
