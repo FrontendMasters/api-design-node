@@ -8,9 +8,9 @@ var lions = [];
 var id = 0;
 
 let findItem = (dataSet, property) => {
-  for(let i=0; i<dataSet.length; i++){
-    if(dataset[i].property === req.params.property) return dataSet[i];
-  }
+  dataSet.find(item => {
+    item.property = req.params.property;
+  });
 }
 
 var updateId = function(req, res, next) {
