@@ -1,7 +1,7 @@
-##Getting started
+## Getting started
 * `npm i`
 
-##Todo
+## Todo
 
 create a basic server with express
 that will send back the index.html file on a GET request to '/'
