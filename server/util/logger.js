@@ -18,10 +18,11 @@ var logger = {
   log: function () {
     // arguments is an array like object with all the passed
     // in arguments to this function
+    console.log(arguments);
+
     var args = _.toArray(arguments).map(function (arg) {
       /* why are 3 arguments being printed here ?  */
 
-      console.log(arguments);
       if (typeof arg === "object") {
         // turn the object to a string so we
         // can log all the properties and color it
@@ -40,7 +41,7 @@ var logger = {
     // and the new colored args :)
 
     /* why are we once again passing the context as console ?  */
-    consoleLog.apply(console, args);
+    consoleLog(...args);
   },
 };
 
